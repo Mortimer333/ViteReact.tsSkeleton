@@ -1,0 +1,61 @@
+@import "assets/css/fonts.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+  }
+  .card-text {
+    @apply w-0;
+    @apply h-[10px];
+    @apply bg-white;
+    @apply rounded-md;
+    @apply mb-3;
+    @apply mr-5;
+  }
+  .outline-image {
+    filter: brightness(0) invert(1);
+  }
+}
+
+:root {
+  font-family: Comfortaa, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: content-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}

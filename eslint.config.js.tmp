@@ -1,0 +1,62 @@
+import js from "@eslint/js";
+import reactRecommended from "eslint-plugin-react";
+import standardWithTypescript from "eslint-config-standard-with-typescript";
+import react from "react";
+import reactHooks from "eslint-plugin-react-hooks";
+import globals from "globals";
+
+
+// Preping this file for future (v9.0) eslint setup but currently the configuration or support of it is just broken
+export default [
+    js.configs.recommended,
+    reactRecommended,
+    standardWithTypescript,
+    {
+        files: ["src/**/*.ts", "src/**/*.tsx"],
+        plugins: {
+            react,
+            reactHooks
+        },
+        languageOptions: {
+            ecmaVersion: "latest",
+            sourceType: "module",
+            project: ["../tsconfig.json"],
+            ecmaFeatures: {
+                jsx: true
+            },
+            globals: {
+                ...globals.browser,
+            }
+        },
+        rules: {
+            "react/jsx-uses-react": "error",
+            "react/jsx-uses-vars": "error",
+            "react/prop-types": "off",
+            "import/prefer-default-export": "off",
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn",
+            "@typescript-eslint/explicit-function-return-type": [
+                "error",
+                {
+                    "allowExpressions": true
+                }
+            ],
+            "max-len": ["error", { "code": 120 }],
+            "require-jsdoc" : 0,
+            "operator-linebreak": ["error", "before"],
+            "arrow-parens": ["error", "as-needed"],
+            "one-var-declaration-per-line": ["error", "initializations"],
+            "one-var": ["error", "consecutive"],
+            "object-curly-spacing": ["error", "always"],
+            "indent": [
+                2,
+                2,
+                {
+                    "CallExpression": {
+                        "arguments": "first"
+                    }
+                }
+            ]
+        }
+    }
+];
